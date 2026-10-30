@@ -1276,7 +1276,7 @@ function renderDetail(){
   }
   h+='<details class="tax"'+(st.P.length?"":" open")+'><summary>'+(x.kat==="kdv"?"Bölümler":"Vergi dökümü")+'</summary><div class="calc">'+calcHtml(x)+'</div></details>';
   h+='<div class="glabel">Vade</div><div class="calc">'+
-     (x.baslangic?'<div class="cl"><span>'+(x.kat==="dizi"?"Bölüm / çekim tarihi":"Vade başlangıcı")+'</span><span>'+nice(x.baslangic)+'</span></div>':"")+
+     (x.baslangic?'<div class="cl"><span>'+(x.kat==="dizi"?"Yayın tarihi":"Vade başlangıcı")+'</span><span>'+nice(x.baslangic)+'</span></div>':"")+
      (x.baslangic&&x.odeme?'<div class="cl"><span>Vade</span><span>'+diffDays(x.baslangic,x.odeme)+' gün</span></div>':"")+
      '<div class="cl"><span>Ödeme tarihi</span><span>'+GUN[parse(x.odeme).getDay()]+', '+nice(x.odeme)+'</span></div>'+notKural(x)+'</div>';
   if(!st.done&&x.odeme)h+='<button class="btn plain" id="icsOne">📅 '+(x.icsDate===x.odeme?"Takvimde ✓ · tekrar ekle":x.icsDate?"Takvimdeki tarihi güncelle":"Takvim'e ekle")+'</button>';
@@ -1406,7 +1406,7 @@ function syncForm(){
   $("musteri").placeholder=dz?"Yapım şirketi":F.kat==="reklam"?"Marka adı":"Kimden alacaksın";
   $("aciklamaLbl").textContent=dz?"Not":"Açıklama";
   $("aciklama").placeholder=dz?"İsteğe bağlı":F.kat==="reklam"?"Örn. 3 story + 1 reels":"Örn. etkinlik, seslendirme";
-  $("baslangicLbl").textContent=dz?"Bölüm / çekim tarihi":"Vade başlangıcı";
+  $("baslangicLbl").textContent=dz?"Yayın tarihi":"Vade başlangıcı";
   if(dz&&!editId){
     $("cokluAyar").style.display=coklu.on?"":"none";
     $("aralikChips").innerHTML=ARALIK.map(a=>'<button data-a="'+a[0]+'" class="'+(a[0]===coklu.aralik?"on":"")+'">'+a[1]+'</button>').join("");
